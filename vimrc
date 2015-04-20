@@ -2,6 +2,10 @@
 set nocompatible
 filetype off                  " required
 
+
+
+" this is a test
+" 
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
 "call vundle#begin()
@@ -115,6 +119,7 @@ endif
 
 " enable virtual edit in vblock mode, and one past the end
 set virtualedit=block,onemore
+set background=dark
 ":colorscheme zenburn
 
 " No icky toolbar, menu or scrollbars in the GUI
@@ -390,6 +395,9 @@ set textwidth=0
 "-----------------------------------------------------------------------
 nnoremap 9 :GundoToggle<CR>
 nnoremap 8 :NERDTreeToggle<CR>
+nnoremap 7 :GitGutterLineHighlightsToggle<CR>
+nnoremap 6 :Thumbnail<CR>
+nnoremap 5 :Scratch<CR>
 
 "-----------------------------------------------------------------------
 " Reindent file
@@ -466,4 +474,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
+
 

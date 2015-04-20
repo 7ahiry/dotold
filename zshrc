@@ -89,6 +89,8 @@ source ${HOME}/rep/github.fork/zsh-git-prompt/zshrc.sh
 [ -f ~/.shell_prompt.sh ] && source ~/.shell_prompt.sh
 #PROMPT='%B%m%~%b$(git_super_status) %# '
 #PROMPT='%B$PREFIX %2~ $(git_super_status)%{$M%}%B»%b%{$RESET%} '
+. /etc/profile.d/vte.sh
+
 
 ### FUNCTION ###
 
