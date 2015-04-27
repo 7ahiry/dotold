@@ -1,0 +1,187 @@
+[general]
+ui = ttyui
+accounts = inriafr, trazafin, tahiry.mail, tahiry.razafindralambo, tahiry.razafin
+fsync = False
+
+
+[Account inriacl]
+localrepository = inriacl-Local
+remoterepository = inriacl-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+
+[Repository inriacl-Local]
+type = Maildir
+localfolders = ~/.mail/inriacl
+
+[Repository inriacl-Remote]
+maxconnections = 1
+ssl = yes
+cert_fingerprint = de2b517909521219a7e240aa98d8b81c26d18072
+type = IMAP
+remoteuser = trazafindralambo
+remotepasseval = "cal29berson"
+realdelete = yes
+holdconnectionopen = yes
+remotehost = mail.inria.cl
+
+
+[Account inriafr]
+localrepository = inriafr-Local
+remoterepository = inriafr-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+
+[Repository inriafr-Local]
+type = Maildir
+localfolders = ~/.mail/inriafr
+
+[Repository inriafr-Remote]
+maxconnections = 1
+ssl = yes
+cert_fingerprint = b8dd8d911c6b26fbba691ffbee25d02cfd42947a
+type = IMAP
+remoteuser = razafind
+remotepasseval = "cal29berson!"
+realdelete = yes
+holdconnectionopen = yes
+remotehost = zimbra.inria.fr
+
+
+[Account trazafin]
+localrepository = trazafin-Local
+remoterepository = trazafin-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository trazafin-Local]
+type = Maildir
+localfolders = ~/.mail/gmailtrazafin.com
+
+
+[Repository trazafin-Remote]
+maxconnections = 1
+ssl = yes
+#cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+type = Gmail
+remoteuser = trazafin@gmail.com
+remotepasseval = "cal29berson!"
+realdelete = no
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                                     '[Gmail]/Corbeille',
+                                                     '[Gmail]/Brouillons',
+                                                     '[Gmail]/Spam',
+                                                     '[Gmail]/Important',
+                                                     '[Gmail]/Trash',
+                                                     '[Gmail]/Suivis',
+                                                     '[Gmail]/Messages envoy&AOk-s',
+                                                     '[Gmail]/Tous les messages',
+                                                    ]
+
+
+
+
+
+[Account tahiry.mail]
+localrepository = tahiry.mail-Local
+remoterepository = tahiry.mail-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository tahiry.mail-Local]
+type = Maildir
+localfolders = ~/.mail/gmailtahiry.mail.com
+
+
+[Repository tahiry.mail-Remote]
+maxconnections = 1
+ssl = yes
+#cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+type = Gmail
+remoteuser = tahiry.mail@gmail.com
+remotepasseval = "cal29berson!"
+realdelete = no
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                                     '[Gmail]/Corbeille',
+                                                     '[Gmail]/Brouillons',
+                                                     '[Gmail]/Spam',
+                                                     '[Gmail]/Important',
+                                                     '[Gmail]/Trash',
+                                                     '[Gmail]/Suivis',
+                                                     '[Gmail]/Messages envoy&AOk-s',
+                                                     '[Gmail]/Tous les messages',
+                                                    ]
+
+
+
+
+[Account tahiry.razafindralambo]
+localrepository = tahiry.razafindralambo-Local
+remoterepository = tahiry.razafindralambo-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository tahiry.razafindralambo-Local]
+type = Maildir
+localfolders = ~/.mail/gmailtahiry.razafindralambo.com
+
+
+[Repository tahiry.razafindralambo-Remote]
+maxconnections = 1
+ssl = yes
+#cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+type = Gmail
+remoteuser = tahiry.razafindralambo@gmail.com
+remotepasseval = "cal29berson!"
+realdelete = no
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                                     '[Gmail]/Corbeille',
+                                                     '[Gmail]/Brouillons',
+                                                     '[Gmail]/Spam',
+                                                     '[Gmail]/Important',
+                                                     '[Gmail]/Trash',
+                                                     '[Gmail]/Suivis',
+                                                     '[Gmail]/Messages envoy&AOk-s',
+                                                     '[Gmail]/Tous les messages',
+                                                    ]
+
+
+
+
+
+[Account tahiry.razafin]
+localrepository = tahiry.razafin-Local
+remoterepository = tahiry.razafin-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository tahiry.razafin-Local]
+type = Maildir
+localfolders = ~/.mail/gmailtahiry.razafin.com
+
+
+[Repository tahiry.razafin-Remote]
+maxconnections = 1
+ssl = yes
+#cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+type = Gmail
+remoteuser = tahiry.razafin@gmail.com
+remotepasseval = "cal29berson!"
+realdelete = no
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                                     '[Gmail]/Corbeille',
+                                                     '[Gmail]/Brouillons',
+                                                     '[Gmail]/Spam',
+                                                     '[Gmail]/Important',
+                                                     '[Gmail]/Trash',
+                                                     '[Gmail]/Suivis',
+                                                     '[Gmail]/Messages envoy&AOk-s',
+                                                     '[Gmail]/Tous les messages',
+                                                    ]
+
