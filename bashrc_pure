@@ -1,0 +1,103 @@
+ # ~/.bashrc: executed by bash(1) for non-login shells.
+# Most recent update: Fri Oct  9 19:14:18 2009
+
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If running interactively, then:
+if [ "$PS1" ]; then
+
+    # don't put duplicate lines in the history. See bash(1) for more options
+    export HISTCONTROL=ignoredups
+
+    # check the window size after each command and, if necessary,
+    # update the values of LINES and COLUMNS.
+    #shopt -s checkwinsize
+
+    # enable color support of ls and also add handy aliases
+    if [ "$TERM" != "dumb" ]; then
+	eval `dircolors -b`
+#	alias ls='ls --color=auto'
+#	alias dir='ls --color=auto --format=vertical'
+#	alias vdir='ls --color=auto --format=long'
+        
+fi
+
+    # some more ls aliases
+#    alias ll='ls -lh --color=auto'
+#    alias la='ls -Alh --color=auto'
+#    alias l='ls -CFh --color=auto'
+
+    # set a fancy prompt
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#   PS1='${debian_chroot:+($debian_chroot)}[\u@\h:\W]$ '
+#   PS1='${debian_chroot:+($debian_chroot)}[\e[1;31m\u\[\e[0m@ \h: \W]$ '
+#		PS1='[\e[0;31m\u\[@\h\[: \W]$'
+#		PS1='[\e[0;31m\u\[\e[0m@\e[0;34m\h\[\e[0m: \W]#'
+		PS1="tah\[\033[34m\]\[\033[30m\]:\[\033[0;34m\]\W\[\033[0;37m\] > \[\033[00m\]"
+    # If this is an xterm set the title to user@host:dir
+    case $TERM in
+    xterm*)
+        #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+		#PROMPT_COMMAND='echo -ne "[%T][%n@%m %c3] %$"' 
+        ;;
+    *)
+        ;;
+    esac
+fi
+
+alias ls='ls -h --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -alh --color=auto'
+alias l='ls -CFh --color=auto'
+alias rm='rm -i'
+alias dv='setxkbmap -layout dvorak -variant fr'
+alias fr='setxkbmap -layout fr'
+alias us='setxkbmap -layout us'
+alias bp='setxkbmap fr bepo'
+alias mc='setxkbmap -layout us -variant mac'
+#alias skype='xhost +local: && su skype -c skype'
+
+# pour faire de VIM un IDE superpuissant!!!
+# http://vim-taglist.sourceforge.net/
+alias gvimcode="gvim "+Tlist""
+
+#alias phone='/home/tah/_pers_/logiciel/xten-xlite/xtensoftphone'
+#alias alpine='/home/tah/Program/alpine-1.00/alpine/alpine'
+#alias pine='alpine'
+
+export CDPATH=.:~
+export PRISM_JAVAMAXMEM=256m
+
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+#set -o emacs
+
+# qiv
+export XLIB_SKIP_ARGB_VISUALS=1
+#LC_CTYPE=fr_FR.iso885915@euro;export LC_CTYPE
+#MM_CHARSET=ISO-8859-15;export MM_CHARSET
+
+#ligne de commande
+export HISTIGNORE="cd:ls:[bf]g:clear:l:ll"
+export HISTCONTROL=ignoreboth
+export SVN_EDITOR="vim"
+export LESS="-R"
+
+export XDG_CONFIG_HOME="${HOME}/.config/"
+
+export PATH="${PATH}:/usr/local/bin:/usr/bin:/usr/local/lib:${HOME}/bin:/usr/local/texlive/2013/bin/x86_64-linux:/usr/local/wsnet-2.0/bin:/usr/libexec/git-core:${HOME}/too/ns/ns-allinone-2.35/bin:${HOME}/too/ns/ns-allinone-2.35/tcl8.5.10/unix:${HOME}/too/ns/ns-allinone-2.35/tk8.5.10/unix"
+export MANPATH="/usr/local/texlive/2010/texmf/doc/man:${MANPATH}"
+export INFOPATH="/usr/local/texlive/2010/texmf/doc/info:${INFOPATH}"
+export WSNET_MODDIR="$HOME/too/wsnet-module/lib"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/too/ns/ns-allinone-2.35/otcl-1.14:${HOME}/too/ns/ns-allinone-2.35/lib"
+export TCL_LIBRARY="${HOME}/too/ns/ns-allinone-2.35/tcl8.5.10/library"
+
+#_JAVA_AWT_WM_NONREPARENTING=1; 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+#export TERM=xterm-256color
+#export http_proxy=http://localhost:8123/
+export GTK_IM_MODULE_FILE=$HOME/.gtk-2.0/gtk.immodules
+
+export GDFONTPATH="/usr/share/fonts/truetype/msttcorefonts/"
+#export PULSE_LATENCY_MSEC=60
