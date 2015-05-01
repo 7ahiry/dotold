@@ -1,3 +1,4 @@
+" test
 " Don't be compatible with vi
 set nocompatible
 filetype off                  " required
