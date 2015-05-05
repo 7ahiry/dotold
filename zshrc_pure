@@ -92,7 +92,7 @@ source ${HOME}/rep/github.fork/zsh-git-prompt/zshrc.sh
 #PROMPT='%B$PREFIX %2~ $(git_super_status)%{$M%}%B»%b%{$RESET%} '
 . /etc/profile.d/vte.sh
 
-
+alias feh='feh --auto-zoom'
 alias ls='ls -h --color=auto'
 alias ll='ls -lh --color=auto'
 alias la='ls -alh --color=auto'
