@@ -388,6 +388,8 @@ set textwidth=0
 "map <F12> :set fo+t
 
 
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 "-----------------------------------------------------------------------
 " Graphic undo
@@ -397,6 +399,8 @@ nnoremap 8 :NERDTreeToggle<CR>
 nnoremap 7 :GitGutterLineHighlightsToggle<CR>
 nnoremap 6 :Thumbnail<CR>
 nnoremap 5 :Scratch<CR>
+nnoremap 4 :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
 
 "-----------------------------------------------------------------------
 " Reindent file
