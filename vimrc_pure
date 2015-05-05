@@ -1,0 +1,114 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+filetype plugin on
+
+" tab options
+set nocompatible
+set modelines=0
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" make things look better
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+let mapleader = ","
+
+" Searching and moving
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+"Handle long lines correctly
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+" force yourself to use navigation keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" remove help from F1 key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+
+
+"Gundo and other stuffs
+nnoremap ,0 :GundoToggle<CR>
+nnoremap ,9 :NERDTreeToggle<CR>
+nnoremap ,8 :GitGutterLineHighlightsToggle<CR>
+nnoremap ,7 :Thumbnail<CR>
+nnoremap ,6 :Scratch<CR>
+:set pastetoggle=<F10>
+map <F6> <Esc>:setlocal spell spelllang=en<CR>
+map <F7> <Esc>:setlocal spell spelllang=fr<CR>
+map <F8> <Esc>z=
+map <F9> <Esc>:setlocal nospell<CR>
+
+
+" PLugin, bundle configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+set laststatus=2
+
+" ---- MUTT ---- "
+au BufRead /tmp/mutt-* set tw=72
+au BufRead /tmp/mutt-* setlocal fo+=aw
+
+
+" GUI options
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
+
+" fold
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+
+" Undo
+set undofile                " Save undo's after file closes
+set undodir=/home/tah/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+set foldlevel=5
+
+"swap files
+set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
