@@ -39,6 +39,7 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -112,3 +113,29 @@ set foldlevel=5
 
 "swap files
 set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
+
+" color scheme
+"syntax enable
+"set background=dark
+"colorscheme base16-default
+
+" Search highlight
+:highlight Search ctermfg=black
+:highlight Search guifg=black
+:highlight Normal ctermfg=white guibg=black
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+    " EITHER blink the line containing the match...
+    function! HLNext (blinktime)
+        set invcursorline
+        redraw
+        exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+        set invcursorline
+        redraw
+    endfunction
+
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
+" escape key
+inoremap ,, <Esc>
