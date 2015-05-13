@@ -79,6 +79,7 @@ map <F6> <Esc>:setlocal spell spelllang=en<CR>
 map <F7> <Esc>:setlocal spell spelllang=fr<CR>
 map <F8> <Esc>z=
 map <F9> <Esc>:setlocal nospell<CR>
+map <F5> <Esc>:LLPStartPreview<CR>
 
 
 " PLugin, bundle configuration
@@ -154,3 +155,10 @@ let g:EasyMotion_smartcase = 1
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" vim-latex-live-preview
+let g:livepreview_previewer = 'zathura'
+
+" git auto commit on save
+" autocmd BufWritePost * let message = input('Message? ', 'Auto-commit: saved ' . expand('%')) | execute ':silent ! if git rev-parse --git-dir > /dev/null 2>&1 ; then git add % ; git commit -m ' . shellescape(message, 1) . '; fi > /dev/null 2>&1'
+autocmd BufWritePost * let message = input('Message? ', '') | execute ':silent ! if git rev-parse --git-dir > /dev/null 2>&1 ; then git add % ; git commit -m ' . shellescape(message, 1) . '; fi > /dev/null 2>&1'
