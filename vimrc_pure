@@ -172,6 +172,7 @@ function! AutoGitCommit()
   "let message = input('Message? ', 'Auto-commit: saved ' . expand('%'))
   let message = input('Commit message? ', '')
   if message == ""
+    echom "test"
     return
   endif
   call system('git add ' . expand('%:p'))
