@@ -169,7 +169,8 @@ function! AutoGitCommit()
   if v:shell_error
     return
   endif
-  let message = input('Message? ', 'Auto-commit: saved ' . expand('%'))
+  "let message = input('Message? ', 'Auto-commit: saved ' . expand('%'))
+  let message = input('Message? ', '')
   call system('git add ' . expand('%:p'))
   call system('git commit -m ' . shellescape(message, 1))
 endfun
