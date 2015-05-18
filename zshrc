@@ -258,3 +258,12 @@ function entofr()
     w3m http://mobile-dictionary.reverso.net/anglais-francais/$(perl -MURI::Escape -e 'print uri_escape("'$1'");') | awk '/━━━━+$/,/Index alphabétique/' ;
 }
 
+# open man with vim usung vman
+compdef vman="man"
+vman() {
+  vim -c "SuperMan $*"
+
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
+}
