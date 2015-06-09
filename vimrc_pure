@@ -69,17 +69,19 @@ vnoremap <F1> <ESC>
 
 
 "Gundo and other stuffs
-nnoremap ,0 :GundoToggle<CR>
-nnoremap ,9 :NERDTreeToggle<CR>
-nnoremap ,8 :GitGutterLineHighlightsToggle<CR>
-nnoremap ,7 :Thumbnail<CR>
-nnoremap ,6 :Scratch<CR>
-:set pastetoggle=<F10>
+nnoremap <leader>0 :GundoToggle<CR>
+nnoremap <leader>9 :NERDTreeToggle<CR>
+nnoremap <leader>8 :GitGutterLineHighlightsToggle<CR>
+nnoremap <leader>7 :Thumbnail<CR>
+nnoremap <leader>6 :Scratch<CR>
+map <F4> <Esc>:LLPStartPreview<CR>
+map <F5> <Esc>:LanguageToolCheck<CR><CR>
 map <F6> <Esc>:setlocal spell spelllang=en<CR>
 map <F7> <Esc>:setlocal spell spelllang=fr<CR>
 map <F8> <Esc>z=
 map <F9> <Esc>:setlocal nospell<CR>
-map <F5> <Esc>:LLPStartPreview<CR>
+:set pastetoggle=<F10>
+let g:languagetool_jar='~/.vim/LanguageTool-2.9/languagetool-commandline.jar'
 
 
 " PLugin, bundle configuration
@@ -164,6 +166,9 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+" format a paragraph
+nnoremap <silent> Q gqip
+
 " vim-latex-live-preview
 let g:livepreview_previewer = 'zathura'
 
@@ -182,3 +187,9 @@ autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
+
+" calendar.vim
+let g:calendar_google_calendar = 1
+let g:calendar_date_full_month_name=1
+let g:calendar_week_number=1
+let g:calendar_view = "week"

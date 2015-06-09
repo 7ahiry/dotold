@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias j="jump"
 #
 #
 #
@@ -114,7 +115,7 @@ export INFOPATH="/usr/local/texlive/2010/texmf/doc/info:${INFOPATH}"
 export WSNET_MODDIR="$HOME/too/wsnet-module/lib"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/too/ns/ns-allinone-2.35/otcl-1.14:${HOME}/too/ns/ns-allinone-2.35/lib"
 export TCL_LIBRARY="${HOME}/too/ns/ns-allinone-2.35/tcl8.5.10/library"
-#_JAVA_AWT_WM_NONREPARENTING=1; 
+#_JAVA_AWT_WM_NONREPARENTING=1;
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_IM_MODULE_FILE=$HOME/.gtk-2.0/gtk.immodules
 
@@ -197,26 +198,26 @@ alias help=run-help
 google() {
     search=""; img=""; wiki=0; serie=0;
     echo "Googling: $@";
-    for term in $@; 
-    do  
-     if [ "$term" = "-i" ]; 
-        then img="&tbm=isch" 
-     elif [ "$term" = "-l" ]; 
-        then img="$img&btnI=I%27m+Feeling+Lucky" 
+    for term in $@;
+    do
+     if [ "$term" = "-i" ];
+        then img="&tbm=isch"
+     elif [ "$term" = "-l" ];
+        then img="$img&btnI=I%27m+Feeling+Lucky"
      elif [ "$term" = "-w" ];
         then wiki=1
      elif [ "$term" = "-S" ];
         then serie=1
      else
-    search="$search%20$term"; 
+    search="$search%20$term";
      fi
     done
     if [ $wiki -eq 1 ];
         then    w3m "http://en.wikipedia.org/wiki/Special:Search/$search"
     elif [ $serie -eq 1 ];
         then    w3m "http://en.wikipedia.org/wiki/Special:Search/list%20of%20$search%20episodes"
-    else        
-        w3m  "http://www.google.com/search?hl=en&q=$search$img" 
+    else
+        w3m  "http://www.google.com/search?hl=en&q=$search$img"
     fi
 }
 
@@ -225,7 +226,7 @@ googlenow(){
     for term in $@;
     do
      search="$search%20$term";
-    done     
+    done
     w3m  "http://www.google.com/search?hl=en&q=$search" |sed -n "/About.*results/{n;N;p;}" |sed -r 's .{23}  ';
 }
 
@@ -249,12 +250,12 @@ ddg(){
 }
 
 function frtoen()
-{ 
+{
     w3m http://mobile-dictionary.reverso.net/francais-anglais/$(perl -MURI::Escape -e 'print uri_escape("'$1'");') | awk '/━━━━+$/,/Index alphabétique/' ;
 }
 
 function entofr()
-{ 
+{
     w3m http://mobile-dictionary.reverso.net/anglais-francais/$(perl -MURI::Escape -e 'print uri_escape("'$1'");') | awk '/━━━━+$/,/Index alphabétique/' ;
 }
 
@@ -267,3 +268,6 @@ vman() {
     echo "No manual entry for $*"
   fi
 }
+
+# other programs
+source ${HOME}/rep/github.fork/k/k.sh
